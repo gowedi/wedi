@@ -27,7 +27,7 @@ export function absoluteUrl(path: string) {
 export async function getGitHubStars(): Promise<number | null> {
   try {
     const response = await fetch(
-      "https://api.github.com/repos/wedao-latam/wedi",
+      "https://api.github.com/repos/gowedi/wedi",
       {
         headers: {
           Accept: "application/vnd.github+json",

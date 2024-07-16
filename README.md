@@ -57,7 +57,7 @@ To get started with Wedi, follow these steps:
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/wedao-latam/wedi.git
+   git clone https://github.com/gowedi/wedi.git
    cd wedi
    ```
 

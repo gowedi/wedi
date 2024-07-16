@@ -7,7 +7,7 @@ const site_url = env.NEXT_PUBLIC_APP_URL;
 
 const links = {
   github:
-    "https://github.com/wedao-latam/wedi",
+    "https://github.com/gowedi/wedi",
   twitter: "https://twitter.com/broomva_tech",
   linkedin: "https://www.linkedin.com/in/broomva_tech",
   discord: "",
