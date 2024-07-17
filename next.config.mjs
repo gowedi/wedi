@@ -1,5 +1,5 @@
-import {withSentryConfig} from "@sentry/nextjs";
 import withBundleAnalyzer from '@next/bundle-analyzer';
+import { withSentryConfig } from "@sentry/nextjs";
 import { withContentlayer } from "next-contentlayer";
 
 // Initialize withBundleAnalyzer

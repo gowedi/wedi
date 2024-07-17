@@ -2,11 +2,15 @@ import { type Metadata } from "next"
 import Link from "next/link"
 import { redirect } from "next/navigation"
 
-import { env } from "@/env.mjs"
 import { DEFAULT_SIGNIN_REDIRECT } from "@/config/defaults"
+import { env } from "@/env.mjs"
 
 import auth from "@/lib/auth"
 
+import { OAuthButtons } from "@/components/auth/oauth-buttons"
+import { SignInWithEmailForm } from "@/components/forms/signin-with-email-form"
+import { SignUpWithPasswordForm } from "@/components/forms/signup-with-password-form"
+import { Icons } from "@/components/icons"
 import {
   Card,
   CardContent,
@@ -15,10 +19,9 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { OAuthButtons } from "@/components/auth/oauth-buttons"
-import { SignInWithEmailForm } from "@/components/forms/signin-with-email-form"
-import { SignUpWithPasswordForm } from "@/components/forms/signup-with-password-form"
-import { Icons } from "@/components/icons"
+
+import { AuthenticationForm } from "@/components/auth/w3s-auth-form"
+import { validOnboardStatus } from "@/components/utils"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -28,6 +31,15 @@ export const metadata: Metadata = {
 
 export default async function SignUpPage(): Promise<JSX.Element> {
   const session = await auth()
+
+  const isValidOnboardStatus = session
+    ? await validOnboardStatus(session)
+    : false;
+
+  if (session && isValidOnboardStatus) {
+    redirect("/wallets");
+  }
+
   if (session) redirect(DEFAULT_SIGNIN_REDIRECT)
 
   return (
@@ -120,6 +132,9 @@ export default async function SignUpPage(): Promise<JSX.Element> {
           </div>
         </CardFooter>
       </Card>
+      <div className="flex flex-col items-center justify-center w-full h-full">
+        <AuthenticationForm isSignIn={false} />
+      </div>
     </div>
   )
 }
