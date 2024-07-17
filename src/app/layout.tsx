@@ -26,6 +26,7 @@ import { IconHome, IconMessage, IconUser } from "@tabler/icons-react"
 
 import { auth } from "@/auth"
 
+import { ClientProviders } from "@/components"
 
 
 export const viewport: Viewport = {
@@ -135,6 +136,7 @@ export default async function RootLayout({ children }: RootLayoutProps): Promise
           fontHeading.variable
         )}
       >
+        <ClientProviders>
         <head>
           {(process.env.NODE_ENV === "development" || process.env.VERCEL_ENV === "preview") && (
             // eslint-disable-next-line @next/next/no-sync-scripts
@@ -162,6 +164,7 @@ export default async function RootLayout({ children }: RootLayoutProps): Promise
             <SiteFooter className="border-t" />
           </ThemeProvider>
         </SmoothScrollProvider>
+        </ClientProviders>
       </body>
     </html>
   )

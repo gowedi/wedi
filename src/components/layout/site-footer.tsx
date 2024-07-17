@@ -8,7 +8,7 @@ import { cn } from "@/lib/utils";
 import Balancer from "react-wrap-balancer";
 import { NewsletterForm } from "../forms/newsletter-form";
 // import { NewsletterSignUpForm } from "@/components/forms/newsletter-signup-form"
-import { Icons } from "../shared/icons";
+import { Icons } from "@/components/icons";
 
 export function SiteFooter({ className }: React.HTMLAttributes<HTMLElement>) {
   return (

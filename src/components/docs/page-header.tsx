@@ -1,6 +1,6 @@
 import { cn } from "@/lib/utils";
 
-import { Icons } from "../shared/icons";
+import { Icons } from "@/components/icons";
 
 interface DocsPageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {
   heading: string;
